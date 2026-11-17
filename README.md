@@ -1,0 +1,2 @@
+# LaoDoc
+Lao document standard 
