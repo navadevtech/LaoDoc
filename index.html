@@ -399,6 +399,8 @@ table.dt tr:hover td{background:var(--tint2)}
       <div class="orgrow"><label class="chkl"><input type="checkbox" id="s_useD2"> ແຖວ 5 · ຂະແໜງ / ພະແນກ (ຕໍ່)</label><div class="dsel"><input type="text" id="s_d2"><select class="deptsel" data-target="s_d2" data-list="2"></select></div></div>
       <div class="row"><div><label class="f">ລາຍຊື່ຕົວເລືອກ ແຖວ 4 (ແຖວລະ 1 ລາຍການ)</label><textarea id="s_depts" rows="5"></textarea></div>
         <div><label class="f">ລາຍຊື່ຕົວເລືອກ ແຖວ 5 (ແຖວລະ 1 ລາຍການ)</label><textarea id="s_depts2" rows="5"></textarea></div></div>
+      <label class="f">ຄຳ/ຊື່ທີ່ບໍ່ໃຫ້ຕັດກາງຄຳເມື່ອຂຶ້ນແຖວໃໝ່ (ແຖວລະ 1 ຄຳ — ຊື່ອົງການ, ຂະແໜງ ແລະ ສະຖານທີ່ ຖືກກັນໃຫ້ອັດຕະໂນມັດແລ້ວ)</label><textarea id="s_nobreak" rows="4"></textarea>
+      <div class="note">ໃຊ້ໄດ້ໃນ preview ແລະ PDF. ໃນ Word (.docx) ຕ້ອງກວດຕາມືຖ້າຊື່ຖືກຕັດ.</div>
       <div class="note">ສອງລາຍຊື່ແຍກກັນ — ປຸ່ມ “▼ ເລືອກຈາກລາຍຊື່” ຂອງແຕ່ລະແຖວ ຈະສະແດງສະເພາະລາຍຊື່ຂອງແຖວນັ້ນ.</div>
       <div class="row" style="margin-top:6px"><div><label class="f">ໂລໂກ້ລຸ່ມຊື່ອົງການ</label><div class="imgbox"><img id="s_logoPrev" alt=""><div><select id="s_logo" style="margin-bottom:6px"><option value="1">ສະແດງ</option><option value="0">ບໍ່ສະແດງ</option></select><br><button class="btn sec sm" id="b_logoImp">ນຳເຂົ້າຮູບ</button> <button class="btn sec sm" id="b_logoReset">ຮູບເລີ່ມຕົ້ນ</button></div></div></div>
         <div><label class="f">ຕາປະທັບອົງການ</label><div class="imgbox"><img id="s_sealPrev" alt=""><div><button class="btn sec sm" id="b_sealImp2">ນຳເຂົ້າຮູບ</button><br><br><button class="btn sec sm" id="b_sealReset2">ຮູບເລີ່ມຕົ້ນ</button></div></div></div></div>
@@ -419,7 +421,7 @@ table.dt tr:hover td{background:var(--tint2)}
       <ul style="line-height:1.8;margin:0;padding-left:18px">
         <li>ຟອນ Phetsarath OT · ກະດາດ A4 (21 × 29.7 ຊມ)</li>
         <li>ຂອບ: ເທິງ 2 · ລຸ່ມ 2 · ຂວາ 2 · ຊ້າຍ 3 ຊມ</li>
-        <li>ໄລຍະຫ່າງແຖວ 1.15 · ໄລຍະຫ່າງວັກ 0 pt</li>
+        <li>ໄລຍະຫ່າງແຖວ Single (≈17.6pt ຕົວ 12) · ໄລຍະຫ່າງວັກ 0 pt</li>
         <li>ເຄື່ອງໝາຍຊາດເສັ້ນຜ່າໃຈກາງ 2 ຊມ ຢູ່ກາງເທິງສຸດ</li>
         <li>ຊື່ປະເທດ/ຄຳຂວັນ 12 ເຂັ້ມ · ຊື່ອົງການ, ເລກທີ, ວັນທີ 12 ທຳມະດາ</li>
         <li>ຊື່ເອກະສານບໍລິຫານ 14 ເຂັ້ມ · ຮຽນ/ເຖິງ/ເລື່ອງ 12 ເຂັ້ມ</li>
@@ -502,7 +504,8 @@ const DEFAULT_SETTINGS={
   depts:'ຂະແໜງເຕັກນິກ\nຂະແໜງບໍລິຫານ-ການເງິນ\nຂະແໜງຜະລິດນ້ຳ\nຂະແໜງຈັດຈຳໜ່າຍນ້ຳ',
   depts2:'ໜ່ວຍງານສຳຫຼວດ-ອອກແບບ\nໜ່ວຍງານບຳລຸງຮັກສາ\nໜ່ວຍງານຫຼຸດຜ່ອນການສູນເສຍນ້ຳ (NRW)',
   abbr:'ລນປຊກ', place:'ແຂວງ ເຊກອງ', head:'ຜູ້ອຳນວຍການ', headName:'', foot:'',
-  numMode:'global', num:'arabic', logo:'1', sealImg:'', logoImg:'', sealDef:'0'
+  numMode:'global', num:'arabic', logo:'1', sealImg:'', logoImg:'', sealDef:'0',
+  nobreak:'ຜົ້ງສາລີ\nຫຼວງນ້ຳທາ\nບໍ່ແກ້ວ\nອຸດົມໄຊ\nຫຼວງພະບາງ\nຫົວພັນ\nໄຊຍະບູລີ\nຊຽງຂວາງ\nວຽງຈັນ\nບໍລິຄຳໄຊ\nຄຳມ່ວນ\nສະຫວັນນະເຂດ\nສາລະວັນ\nເຊກອງ\nຈຳປາສັກ\nອັດຕະປື\nໄຊສົມບູນ\nນະຄອນຫຼວງ'
 };
 
 /* ---- Document types (from Annex 01 of Instruction 02/ພນ) ----
@@ -659,8 +662,21 @@ function numOffset(doc){ const ob=orgBlock(doc); const r=parseInt(doc.numRow,10)
 
 const twoSign=d=>!!(TYPES[d.type].sign2&&(((d.s2t||'').trim())||((d.s2n||'').trim())));
 
+/* ---- line spacing = "Single" of Phetsarath OT as used in the standard PDF (12pt -> 17.6pt) ---- */
+const LH=1.4667;
+/* ---- keep names (organization, departments, place, provinces) from being split inside a word ---- */
+let _nbKey='',_nbRe=null;
+function nbRegex(doc){
+  const src=[S.org,S.p1,S.p2,S.d1,S.d2,S.place,(doc&&doc.d1)||'',(doc&&doc.d2)||'',S.nobreak||''].join('\n');
+  if(src===_nbKey) return _nbRe; _nbKey=src;
+  const words=[...new Set(src.split(/[\s\n,;|/]+/).map(w=>w.trim()).filter(w=>w.length>=3&&/[\u0E80-\u0EFF]/.test(w)))].sort((a,c)=>c.length-a.length);
+  _nbRe=words.length?new RegExp(words.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g'):null; return _nbRe;
+}
+let _nbDoc=null;
+const escP=s=>{ const t=esc(s), re=nbRegex(_nbDoc); return re?t.replace(re,m=>'<span style="white-space:nowrap">'+m+'</span>'):t; };
+
 /* ============ Rendering: blocks → paginated A4 pages ============ */
-const BASE='font-family:'+FONT+';font-size:12pt;line-height:1.15;margin:0;color:#000;';
+const BASE='font-family:'+FONT+';font-size:12pt;line-height:'+LH+';margin:0;color:#000;';
 /* ---------- inline formatting: **bold**  {b}{i}{u}{s}{sup}{sub}{c=#hex}{h=#hex}{sz=N}{a=url}{br} ---------- */
 const INLINE_RE=/\{(\/?)(b|i|u|s|sup|sub|c|h|sz|a)(?:=([^}]*))?\}|\{br\}|\*\*/g;
 const okColor=v=>/^#[0-9a-fA-F]{3,8}$/.test(v||'')||/^[a-zA-Z]{3,20}$/.test(v||'');
@@ -682,7 +698,7 @@ function parseInline(text){
 }
 function runHTML(r){
   if(r.br) return '<br>';
-  const s=esc(r.t), st=[];
+  const s=escP(r.t), st=[];
   if(r.b) st.push('font-weight:bold'); if(r.i) st.push('font-style:italic');
   const td=[]; if(r.u||r.a) td.push('underline'); if(r.s) td.push('line-through'); if(td.length) st.push('text-decoration:'+td.join(' '));
   if(r.c) st.push('color:'+r.c); else if(r.a) st.push('color:#1d4ed8');
@@ -697,7 +713,7 @@ function el(style,html,keepNext){
   const d=document.createElement('div'); d.style.cssText=BASE+style; d.innerHTML=html;
   if(keepNext) d.dataset.keep='1'; return d;
 }
-const SP=()=>el('height:1.15em;','&nbsp;');
+const SP=()=>el('height:'+LH+'em;','&nbsp;');
 
 /* ---------- paragraph prefixes:  >  (indent)   @c @r @l @j (align)   @n (no first-line indent) ---------- */
 const BUL_SYM='-•○●■□◆◇➢►✓✔★☆※–—▪▫→';
@@ -810,11 +826,11 @@ function tableBlocks(rows){
 function sigHTML(doc){
   const T=TYPES[doc.type];
   const seal=doc.seal==='1'?'<img src="'+sealSrc()+'" style="position:absolute;left:.1cm;top:.1cm;width:2.4cm;height:2.4cm;object-fit:contain;opacity:.9;mix-blend-mode:multiply" alt="">':'';
-  const space='height:3.6cm;';       // 3 lines + signature + 3 lines (Annex spec)
+  const space='height:'+(7*LH).toFixed(3)+'em;';       // 3 lines + signature line + 3 lines (Annex spec)
   const one=(top,pos,name,sealHtml)=>
-    '<div style="font-weight:bold;">'+top.map(t=>esc(t)).join('<br>')+(pos?'<br>'+esc(pos):'')+'</div>'+
+    '<div style="font-weight:bold;">'+top.map(t=>escP(t)).join('<br>')+(pos?'<br>'+escP(pos):'')+'</div>'+
     '<div style="position:relative;'+space+'">'+(sealHtml||'')+'</div>'+
-    '<div style="font-weight:bold;">'+esc(name||'')+'</div>';
+    '<div style="font-weight:bold;">'+escP(name||'')+'</div>';
   if(twoSign(doc)){
     return '<table style="width:100%;border-collapse:collapse;table-layout:fixed;"><tr>'+
       '<td style="width:50%;text-align:center;vertical-align:top;'+BASE+'">'+one([doc.signerTitle||'ປະທານ'],'',doc.signerName,seal)+'</td>'+
@@ -825,14 +841,14 @@ function sigHTML(doc){
   return one(m.top,m.pos,m.name,seal);
 }
 function listsHTML(doc){
-  const sm='font-size:10pt;line-height:1.15;padding-left:.5cm;';
+  const sm='font-size:10pt;line-height:'+LH+';padding-left:.5cm;';
   let h='';
   const att=(doc.att||[]).filter(a=>a.text.trim());
-  if(att.length){ h+='<div style="'+sm+'">ເອກະສານຄັດຕິດ:</div>'+att.map((a,i)=>'<div style="'+sm+'">'+dig(i+1)+'. '+esc(a.text)+(a.n?' '+dig(a.n)+' ສະບັບ':'')+(i===att.length-1?'.':';')+'</div>').join(''); h+='<div style="'+sm+'height:.3cm"></div>'; }
+  if(att.length){ h+='<div style="'+sm+'">ເອກະສານຄັດຕິດ:</div>'+att.map((a,i)=>'<div style="'+sm+'">'+dig(i+1)+'. '+escP(a.text)+(a.n?' '+dig(a.n)+' ສະບັບ':'')+(i===att.length-1?'.':';')+'</div>').join(''); h+='<div style="'+sm+'height:.3cm"></div>'; }
   const dist=(doc.dist||[]).filter(a=>a.name.trim()); const keep=+doc.keep||0;
   if(dist.length||keep){
     h+='<div style="'+sm+'">ບ່ອນນຳສົ່ງ:</div>';
-    dist.forEach((a,i)=>{h+='<div style="'+sm+'">'+dig(i+1)+'. '+esc(a.name)+(a.n?' '+dig(a.n)+' ສະບັບ':'')+(a.why?' ('+esc(a.why)+')':'')+';</div>'});
+    dist.forEach((a,i)=>{h+='<div style="'+sm+'">'+dig(i+1)+'. '+escP(a.name)+(a.n?' '+dig(a.n)+' ສະບັບ':'')+(a.why?' ('+escP(a.why)+')':'')+';</div>'});
     if(keep) h+='<div style="'+sm+'">'+dig(dist.length+1)+'. ເກັບຮັກສາໄວ້ '+dig(keep)+' ສະບັບ.</div>';
   }
   return h;
@@ -840,7 +856,7 @@ function listsHTML(doc){
 
 /* Build everything: {pre:[els], tail:el, foot:el|null} */
 function buildBlocks(doc){
-  const T=TYPES[doc.type], pre=[];
+  _nbDoc=doc; const T=TYPES[doc.type], pre=[];
   // 1 emblem
   pre.push(el('text-align:center;padding-bottom:7pt;','<img src="'+IMG_EMBLEM+'" style="width:2cm;height:auto;" alt="">'));
   // 2 country
@@ -848,31 +864,30 @@ function buildBlocks(doc){
   pre.push(SP());
   // 3-5 org row
   const ob=orgBlock(doc);
-  const left=ob.parents.map(esc).join('<br>')+(ob.parents.length?'<br>':'')+esc(ob.org)+(ob.depts.length?'<br>'+ob.depts.map(esc).join('<br>'):'')+(S.logo==='1'?'<div style="padding-top:4pt"><img src="'+logoSrc()+'" style="width:1.9cm;height:1.9cm;object-fit:contain;" alt=""></div>':'');
-  const right=Array.from({length:numOffset(doc)},()=>'<br>').join('')+esc(numText(doc))+'<br>'+esc(placeDate(doc));
+  const left=ob.parents.map(esc).join('<br>')+(ob.parents.length?'<br>':'')+escP(ob.org)+(ob.depts.length?'<br>'+ob.depts.map(esc).join('<br>'):'')+(S.logo==='1'?'<div style="padding-top:4pt"><img src="'+logoSrc()+'" style="width:1.9cm;height:1.9cm;object-fit:contain;" alt=""></div>':'');
+  const right=Array.from({length:numOffset(doc)},()=>'<br>').join('')+escP(numText(doc))+'<br>'+escP(placeDate(doc));
   pre.push(el('', '<table style="width:100%;border-collapse:collapse;table-layout:fixed;"><tr><td style="width:50%;vertical-align:top;text-align:left;'+BASE+'">'+left+'</td><td style="width:50%;vertical-align:top;text-align:right;'+BASE+'">'+right+'</td></tr></table>'));
   // stamps
-  const stamp=(t)=>'<span style="display:inline-block;border:2px solid #c0392b;color:#c0392b;font-weight:bold;padding:1pt 12pt;margin-right:8pt;">'+esc(t)+'</span>';
+  const stamp=(t)=>'<span style="display:inline-block;border:2px solid #c0392b;color:#c0392b;font-weight:bold;padding:1pt 12pt;margin-right:8pt;">'+escP(t)+'</span>';
   if(doc.urg||doc.sec) pre.push(el('padding-top:.4cm;',(doc.urg?stamp(doc.urg):'')+'<br>'+(doc.sec?stamp(doc.sec):'')));
   pre.push(SP());
   // 6 title
-  pre.push(el('text-align:center;font-weight:bold;font-size:14pt;',esc(T.name),true));
-  if(T.subj==='about') pre.push(el('text-align:center;font-weight:bold;font-size:14pt;',esc(T.about)+' '+esc(doc.subject||'......'),true));
-  if(T.subj==='brief'&&doc.subject) pre.push(el('text-align:center;font-weight:bold;',esc(doc.subject),true));
+  pre.push(el('text-align:center;font-weight:bold;font-size:14pt;',escP(T.name),true));
+  if(T.subj==='about') pre.push(el('text-align:center;font-weight:bold;font-size:14pt;',escP(T.about)+' '+escP(doc.subject||'......'),true));
+  if(T.subj==='brief'&&doc.subject) pre.push(el('text-align:center;font-weight:bold;',escP(doc.subject),true));
   pre.push(SP());
   // recv / subject
-  if(T.recv){
-    pre.push(el('font-weight:bold;text-indent:2.54cm;',esc(doc.recvLabel||T.recv)+' : '+esc(doc.recv||'......'),true));
-  }
-  if(T.subj==='subject') pre.push(el('font-weight:bold;text-indent:2.54cm;','ເລື່ອງ : '+esc(doc.subject||'......'),true));
+  const LBL=(label,val)=>el('font-weight:bold;margin-left:'+(2.54+1.4)+'cm;text-indent:-1.4cm;','<span style="display:inline-block;width:0.9cm;text-indent:0">'+escP(label)+'</span><span style="display:inline-block;width:0.5cm;text-indent:0">:</span>'+escP(val),true);
+  if(T.recv) pre.push(LBL(doc.recvLabel||T.recv,doc.recv||'......'));
+  if(T.subj==='subject') pre.push(LBL('ເລື່ອງ',doc.subject||'......'));
   // refs
   const refs=(doc.refs||[]).filter(r=>r.trim());
   if(refs.length){
     pre.push(SP());
-    refs.forEach(r=>pre.push(el('margin-left:1.27cm;text-indent:-.635cm;text-align:left;','<span style="display:inline-block;width:.635cm;text-indent:0">-</span>'+esc(r.replace(/^[-–]\s*/,'')),false)));
+    refs.forEach(r=>pre.push(el('margin-left:1.27cm;text-indent:-.635cm;text-align:left;','<span style="display:inline-block;width:.635cm;text-indent:0">-</span>'+escP(r.replace(/^[-–]\s*/,'')),false)));
   }
   pre.push(SP());
-  if(T.lead) pre.push(el('text-align:center;font-weight:bold;font-size:14pt;',esc(T.lead.replace('ຫົວໜ້າອົງການ',doc.headTitle||S.head)),true)),pre.push(SP());
+  if(T.lead) pre.push(el('text-align:center;font-weight:bold;font-size:14pt;',escP(T.lead.replace('ຫົວໜ້າອົງການ',doc.headTitle||S.head)),true)),pre.push(SP());
   // body
   const body=parseBody(doc);
   let lastIdx=-1; body.forEach((b,i)=>{if(b.para) lastIdx=i});
@@ -884,7 +899,7 @@ function buildBlocks(doc){
   const tail=document.createElement('div'); tail.style.cssText=BASE; tail.dataset.tail='1';
   if(lastPara) tail.appendChild(lastPara);
   const lists=listsHTML(doc);
-  const gap='<div style="height:1.15em"></div>';
+  const gap='<div style="height:'+LH+'em"></div>';
   if(twoSign(doc)){
     tail.insertAdjacentHTML('beforeend',gap+sigHTML(doc)+(lists?'<div style="padding-top:.4cm;width:9cm;">'+lists+'</div>':''));
   }else{
@@ -892,7 +907,7 @@ function buildBlocks(doc){
       '<td style="width:9cm;vertical-align:top;'+BASE+'">'+(lists||'&nbsp;')+'</td>'+
       '<td style="width:7cm;vertical-align:top;text-align:center;'+BASE+'">'+sigHTML(doc)+'</td></tr></table>');
   }
-  const foot=(doc.foot||'').trim()?el('font-size:10pt;',esc(doc.foot).replace(/\n/g,'<br>')):null;
+  const foot=(doc.foot||'').trim()?el('font-size:10pt;',escP(doc.foot).replace(/\n/g,'<br>')):null;
   return {pre,tail,foot};
 }
 
@@ -948,13 +963,13 @@ function renderPreview(){
 function stripMarks(s){return s.replace(/[\u0EB1\u0EB4-\u0EB9\u0EBB\u0EBC\u0EC8-\u0ECD\u0EC0-\u0EC4]/g,'')}
 function runChecks(doc){
   const T=TYPES[doc.type], out=[], add=(l,t)=>out.push({l,t});
-  add('ok','ຮູບແບບ: Phetsarath OT · A4 · ຂອບ 2-2-2-3 ຊມ · ແຖວ 1.15 (ລັອກແລ້ວ)');
+  add('ok','ຮູບແບບ: Phetsarath OT · A4 · ຂອບ 2-2-2-3 ຊມ · ແຖວ Single ≈17.6pt (ລັອກແລ້ວ)');
   if(!S.org.trim()) add('err','ຍັງບໍ່ໄດ້ໃສ່ຊື່ອົງການ (ໄປທີ່ ຕັ້ງຄ່າ)');
   const a=(doc.abbr||'').trim();
   if(!a) add('err','ຍັງບໍ່ມີຕົວອັກສອນຫຍໍ້ຂອງອົງການ');
   else if(/[\d.\-_\/]/.test(a)) add('err','ຕົວອັກສອນຫຍໍ້ ຫ້າມມີຈຸດ, ຂີດ ຫຼື ຕົວເລກ');
-  else { const n=stripMarks(a).length; if(n<2||n>5) add('warn','ຕົວອັກສອນຫຍໍ້ ຄວນມີ 2–5 ຕົວ (ຕອນນີ້ '+n+')'); else add('ok','ຕົວອັກສອນຫຍໍ້ ຖືກຕ້ອງ ('+esc(a)+')'); }
-  if(doc.number){ if(numberTaken(doc)) add('err','ເລກທີ '+doc.number+' ຊໍ້າກັບເອກະສານອື່ນ'); else add('ok','ເລກທີບໍ່ຊໍ້າ ('+pad2(doc.number)+'/'+esc(a)+')'); }
+  else { const n=stripMarks(a).length; if(n<2||n>5) add('warn','ຕົວອັກສອນຫຍໍ້ ຄວນມີ 2–5 ຕົວ (ຕອນນີ້ '+n+')'); else add('ok','ຕົວອັກສອນຫຍໍ້ ຖືກຕ້ອງ ('+escP(a)+')'); }
+  if(doc.number){ if(numberTaken(doc)) add('err','ເລກທີ '+doc.number+' ຊໍ້າກັບເອກະສານອື່ນ'); else add('ok','ເລກທີບໍ່ຊໍ້າ ('+pad2(doc.number)+'/'+escP(a)+')'); }
   else add('warn','ຍັງບໍ່ໄດ້ອອກເລກທີ — ກົດ “ອອກເລກ” ເມື່ອພ້ອມເຊັນ');
   if(!doc.date) add('err','ຍັງບໍ່ໄດ້ໃສ່ວັນທີ'); if(!doc.place) add('warn','ຍັງບໍ່ໄດ້ໃສ່ສະຖານທີ່ອອກເອກະສານ');
   if(T.recv&&!(doc.recv||'').trim()) add('err','ຍັງບໍ່ໄດ້ໃສ່ ' +(doc.recvLabel||T.recv)+' (ຜູ້ຮັບ)');
@@ -1053,7 +1068,8 @@ function wp(content,o){
   if(o.border) ppr+='<w:pBdr>'+['top','left','bottom','right'].map(s=>'<w:'+s+' w:val="single" w:sz="12" w:space="2" w:color="'+o.border+'"/>').join('')+'</w:pBdr>';
   if(o.rule) ppr+='<w:pBdr><w:bottom w:val="single" w:sz="6" w:space="1" w:color="000000"/></w:pBdr>';
   if(o.frame) ppr+='<w:framePr w:w="9071" w:hSpace="0" w:wrap="around" w:vAnchor="margin" w:hAnchor="margin" w:yAlign="bottom"/>';
-  ppr+='<w:spacing w:before="'+(o.before||0)+'" w:after="'+(o.after||0)+'" w:line="'+(o.line||276)+'" w:lineRule="auto"/>';
+  ppr+='<w:spacing w:before="'+(o.before||0)+'" w:after="'+(o.after||0)+'" w:line="'+(o.line||240)+'" w:lineRule="auto"/>';
+  if(o.tabs) ppr+='<w:tabs>'+o.tabs.map(t=>'<w:tab w:val="left" w:pos="'+t+'"/>').join('')+'</w:tabs>';
   if(o.left||o.hanging||o.first) ppr+='<w:ind w:left="'+(o.left||0)+'"'+(o.hanging?' w:hanging="'+o.hanging+'"':'')+(o.first?' w:firstLine="'+o.first+'"':'')+'/>';
   ppr+='<w:jc w:val="'+(o.jc||'left')+'"/>';
   return '<w:p><w:pPr>'+ppr+'</w:pPr>'+content+'</w:p>';
@@ -1091,8 +1107,9 @@ function docxBody(doc,ctx){
   if(T.subj==='about') A.push(wp(wr(T.about+' '+(doc.subject||'......'),{b:true,sz:14}),{jc:'center',keepNext:true}));
   if(T.subj==='brief'&&doc.subject) A.push(wp(wr(doc.subject,{b:true}),{jc:'center',keepNext:true}));
   A.push(wblank());
-  if(T.recv) A.push(wp(wr((doc.recvLabel||T.recv)+' : ',{b:true})+wr(doc.recv||'......',{b:true}),{first:1440,keepNext:true}));
-  if(T.subj==='subject') A.push(wp(wr('ເລື່ອງ : ',{b:true})+wr(doc.subject||'......',{b:true}),{first:1440,keepNext:true}));
+  const LBLW=(label,val)=>wp(wr(label,{b:true})+wtab()+wr(':',{b:true})+wtab()+wr(val,{b:true}),{left:1440+794,hanging:794,tabs:[1440+510],keepNext:true});
+  if(T.recv) A.push(LBLW(doc.recvLabel||T.recv,doc.recv||'......'));
+  if(T.subj==='subject') A.push(LBLW('ເລື່ອງ',doc.subject||'......'));
   const refs=(doc.refs||[]).filter(r=>r.trim());
   if(refs.length){ A.push(wblank()); refs.forEach(r=>A.push(wp(wr('-')+wtab()+wr(r.replace(/^[-–]\s*/,'')),{left:720,hanging:360}))); }
   A.push(wblank());
@@ -1144,7 +1161,7 @@ function docxBody(doc,ctx){
   const signBlock=(top,pos,name,withSeal)=>{
     let s=wp(top.map((t,i)=>(i?wbr({b:true}):'')+wr(t,{b:true})).join('')+(pos?wbr({b:true})+wr(pos,{b:true}):''),{jc:'center',keepNext:true});
     const sealRun=withSeal?wimg('rIdImg2',2,'seal.png',Math.round(2.4*EMU),Math.round(2.4*EMU*sh/sw),{x:-20000,y:30000}):'';
-    s+=wp(sealRun,{jc:'center',keepNext:true,before:0,after:1750,line:276});
+    s+=wp(sealRun,{jc:'center',keepNext:true,before:0,after:2112,line:240});
     s+=wp(wr(name||'',{b:true}),{jc:'center'}); return s;
   };
   if(twoSign(doc)){
@@ -1166,7 +1183,7 @@ function buildDocx(doc){
   const document_='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document '+NS+'><w:body>'+bodyXml+'<w:sectPr>'+footerRef+'<w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1701" w:header="794" w:footer="794" w:gutter="0"/></w:sectPr></w:body></w:document>';
   const fld='<w:r>'+wrpr({})+'<w:fldChar w:fldCharType="begin"/></w:r><w:r>'+wrpr({})+'<w:instrText xml:space="preserve"> PAGE </w:instrText></w:r><w:r>'+wrpr({})+'<w:fldChar w:fldCharType="separate"/></w:r>'+wr('1')+'<w:r>'+wrpr({})+'<w:fldChar w:fldCharType="end"/></w:r>';
   const footer='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:ftr '+NS+'>'+(hasFoot?String(doc.foot).split('\n').map((l,i)=>wp(wr(l,{sz:10}),{line:240})).join(''):'')+(pages>1?wp(fld,{jc:hasFoot?'right':'center'}):'')+'</w:ftr>';
-  const styles='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:docDefaults><w:rPrDefault><w:rPr>'+WF+'<w:sz w:val="24"/><w:szCs w:val="24"/><w:lang w:val="lo-LA" w:eastAsia="lo-LA" w:bidi="lo-LA"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="0" w:line="276" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style></w:styles>';
+  const styles='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:docDefaults><w:rPrDefault><w:rPr>'+WF+'<w:sz w:val="24"/><w:szCs w:val="24"/><w:lang w:val="lo-LA" w:eastAsia="lo-LA" w:bidi="lo-LA"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="0" w:line="240" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style></w:styles>';
   const ct='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Default Extension="jpg" ContentType="image/jpeg"/><Default Extension="jpeg" ContentType="image/jpeg"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/></Types>';
   const rels='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>';
   const drels='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rIdFooter" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer1.xml"/><Relationship Id="rIdImg1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/emblem.png"/><Relationship Id="rIdImg2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/seal.png"/><Relationship Id="rIdImg3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/logo.png"/>'+ctx.imgs.map(x=>'<Relationship Id="'+x.rid+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/'+x.name+'"/>').join('')+'</Relationships>';
@@ -1581,7 +1598,7 @@ $('#restoreFile').addEventListener('change',async e=>{
 
 
 /* ---------- SETTINGS ---------- */
-const SET_TXT={s_p1:'p1',s_p2:'p2',s_org:'org',s_d1:'d1',s_d2:'d2',s_abbr:'abbr',s_place:'place',s_head:'head',s_headName:'headName',s_foot:'foot',s_depts:'depts',s_depts2:'depts2',s_sealDef:'sealDef'};
+const SET_TXT={s_p1:'p1',s_p2:'p2',s_org:'org',s_d1:'d1',s_d2:'d2',s_abbr:'abbr',s_place:'place',s_head:'head',s_headName:'headName',s_foot:'foot',s_depts:'depts',s_depts2:'depts2',s_sealDef:'sealDef',s_nobreak:'nobreak'};
 const SET_CHK={s_useP1:'useP1',s_useP2:'useP2',s_useD1:'useD1',s_useD2:'useD2'};
 function loadSettings(){
   Object.entries(SET_TXT).forEach(([id,k])=>$('#'+id).value=S[k]||'');
@@ -1592,7 +1609,7 @@ function loadSettings(){
 const defaultsOf=(st)=>({abbr:st.abbr,place:st.place,headTitle:st.head,signerName:st.headName,foot:st.foot||'',d1:st.useD1?(st.d1||''):'',d2:st.useD2?(st.d2||''):''});
 $('#b_setsave').addEventListener('click',()=>{
   const old=defaultsOf(S);
-  Object.entries(SET_TXT).forEach(([id,k])=>S[k]=(id==='s_depts'||id==='s_depts2')?$('#'+id).value:$('#'+id).value.trim());
+  Object.entries(SET_TXT).forEach(([id,k])=>S[k]=(id==='s_depts'||id==='s_depts2'||id==='s_nobreak')?$('#'+id).value:$('#'+id).value.trim());
   Object.entries(SET_CHK).forEach(([id,k])=>S[k]=$('#'+id).checked);
   S.numMode=$('#s_numMode').value; S.num=$('#s_num').value; S.logo=$('#s_logo').value;
   LS.set('settings',S); if(typeof FSY!=='undefined') FSY.saveSettings(); $('#hdrOrg').textContent=S.org;
